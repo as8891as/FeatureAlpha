@@ -26,4 +26,8 @@
         android:id="@+id/activity6"
         android:orderInCategory="600"
         android:title="Activity 6" />
+    <item
+        android:id="@+id/activity7"
+        android:orderInCategory="700"
+        android:title="Activity 7" />
 </menu>

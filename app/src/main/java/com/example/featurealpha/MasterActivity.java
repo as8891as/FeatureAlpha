@@ -128,6 +128,10 @@ public class MasterActivity extends AppCompatActivity {
             si = new Intent(this, SensorsActivity.class);
             startActivity(si);
         }
+        else {
+            si = new Intent(this, GraphicsActivity.class);
+            startActivity(si);
+        }
         return super.onOptionsItemSelected(item);
     }
 }
