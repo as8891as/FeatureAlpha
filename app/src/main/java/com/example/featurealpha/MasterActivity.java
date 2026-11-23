@@ -124,6 +124,10 @@ public class MasterActivity extends AppCompatActivity {
             si = new Intent(this, AIActivity.class);
             startActivity(si);
         }
+        else if (id == R.id.activity6) {
+            si = new Intent(this, SensorsActivity.class);
+            startActivity(si);
+        }
         return super.onOptionsItemSelected(item);
     }
 }

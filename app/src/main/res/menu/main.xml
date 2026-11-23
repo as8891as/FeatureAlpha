@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/activity1"
@@ -21,4 +22,8 @@
         android:id="@+id/activity5"
         android:orderInCategory="500"
         android:title="Activity 5" />
+    <item
+        android:id="@+id/activity6"
+        android:orderInCategory="600"
+        android:title="Activity 6" />
 </menu>
