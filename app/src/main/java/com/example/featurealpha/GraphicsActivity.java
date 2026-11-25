@@ -12,36 +12,42 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class GraphicsActivity extends MasterActivity {
 
-    private CanvasView canvasView;
+    private MovingShapeView movingShapeView;
     private Guideline guideline1, guideline2, guideline3, guideline4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_graphics);
 
-        canvasView = findViewById(R.id.sensor_canvas);
+        ConstraintLayout mainLayout = findViewById(R.id.main);
+        movingShapeView = findViewById(R.id.movingShapeView);
         guideline1 = findViewById(R.id.guideline1);
         guideline2 = findViewById(R.id.guideline2);
         guideline3 = findViewById(R.id.guideline3);
         guideline4 = findViewById(R.id.guideline4);
 
+        ViewCompat.setOnApplyWindowInsetsListener(mainLayout, (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
     }
 
     public void startSlideAnimation(View view) {
-        canvasView.animate().cancel();
-        canvasView.bringToFront();
+        movingShapeView.animate().cancel();
+        movingShapeView.bringToFront();
 
-        float startX = guideline2.getX() - canvasView.getWidth();
+        float startX = guideline2.getX() - movingShapeView.getWidth();
         float startY = guideline3.getY();
-
         float endX = guideline1.getX();
-        float endY = guideline4.getY() - canvasView.getHeight();
+        float endY = guideline4.getY() - movingShapeView.getHeight();
 
-        canvasView.setX(startX);
-        canvasView.setY(startY);
+        movingShapeView.setX(startX);
+        movingShapeView.setY(startY);
 
-        canvasView.animate()
+        movingShapeView.animate()
                 .x(endX)
                 .y(endY)
                 .setDuration(1500)

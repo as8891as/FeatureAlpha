@@ -40,19 +40,29 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="175dp" />
 
-    <com.example.featurealpha.CanvasView
-        android:id="@+id/sensor_canvas"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:layout_constraintEnd_toEndOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="448dp" />
+
+    <!-- The Canvas Background View -->
+    <com.example.featurealpha.CanvasView
+        android:id="@+id/canvasView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/guideline3" />
+
+    <com.example.featurealpha.MovingShapeView
+        android:id="@+id/movingShapeView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toEndOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <Button
         android:id="@+id/btn_listen"
