@@ -1,4 +1,4 @@
-package com.example.featurealpha; // Replace with your actual package name
+package com.example.featurealpha;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -23,7 +23,6 @@ public class MainActivity extends MasterActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         iV = findViewById(R.id.iV);
-        iV.setScaleType(ImageView.ScaleType.FIT_CENTER);
     }
 
     public void uploadImageGallery(View view) {
@@ -34,7 +33,7 @@ public class MainActivity extends MasterActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
             Uri imageUri = data.getData();
             displayFullResolutionImage(imageUri);
         }

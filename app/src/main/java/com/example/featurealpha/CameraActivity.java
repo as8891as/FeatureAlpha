@@ -31,8 +31,7 @@ public class CameraActivity extends MasterActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_camera); // Change to R.layout.activity_main if that is your XML file's name
-
+        setContentView(R.layout.activity_camera);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -42,8 +41,6 @@ public class CameraActivity extends MasterActivity {
         iV = findViewById(R.id.iV);
     }
 
-    // Matches android:onClick="uploadImageGallery" in your XML
-    @SuppressWarnings("deprecation")
     public void uploadImageGallery(View view) {
         try {
             File photoFile = new File(getCacheDir(), "captured_photo.jpg");
@@ -62,8 +59,6 @@ public class CameraActivity extends MasterActivity {
         }
     }
 
-    @Override
-    @SuppressWarnings("deprecation")
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 

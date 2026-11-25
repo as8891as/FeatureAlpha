@@ -44,7 +44,6 @@ public class SensorsActivity extends MasterActivity implements SensorEventListen
         }
     }
 
-    // Matches android:onClick="toggleListening" in activity_sensors.xml
     public void toggleListening(View view) {
         if (accelerometer == null) {
             Toast.makeText(this, "No accelerometer found", Toast.LENGTH_SHORT).show();
@@ -76,7 +75,6 @@ public class SensorsActivity extends MasterActivity implements SensorEventListen
             float y = event.values[1];
             float z = event.values[2];
 
-            // Calculate total acceleration and subtract Earth's gravity so a still phone reads ~0.00
             double totalAcceleration = Math.sqrt(x * x + y * y + z * z);
             double shakeIntensity = Math.abs(totalAcceleration - SensorManager.GRAVITY_EARTH);
 
@@ -86,7 +84,6 @@ public class SensorsActivity extends MasterActivity implements SensorEventListen
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // Not needed for basic shake detection
     }
 
     @Override

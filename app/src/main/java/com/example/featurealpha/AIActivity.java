@@ -40,12 +40,10 @@ public class AIActivity extends MasterActivity {
         tV = findViewById(R.id.tV);
         scrollView = findViewById(R.id.scrollView);
 
-        // Initialize Gemini (use "gemini-3.5-flash-lite" if gemini-3.8-flash is temporarily busy)
         GenerativeModel gm = new GenerativeModel("gemini-3.5-flash", BuildConfig.GEMINI_API_KEY);
         model = GenerativeModelFutures.from(gm);
     }
 
-    // Matches android:onClick="sendPrompt" in activity_aiactivity.xml
     public void sendPrompt(View view) {
         String promptText = eT.getText().toString().trim();
         if (promptText.isEmpty()) {
