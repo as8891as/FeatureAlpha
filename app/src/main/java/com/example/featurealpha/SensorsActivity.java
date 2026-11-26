@@ -19,7 +19,6 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.Locale;
 
 public class SensorsActivity extends MasterActivity implements SensorEventListener {
-
     private SensorManager sensorManager;
     private Sensor accelerometer;
     private TextView tV_magnitude;
@@ -30,15 +29,12 @@ public class SensorsActivity extends MasterActivity implements SensorEventListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensors);
-
         tV_magnitude = findViewById(R.id.tV_magnitude);
         btn_listen = findViewById(R.id.btn_listen);
-
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         if (sensorManager != null) {
             accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         }
-
         if (accelerometer == null) {
             tV_magnitude.setText("Accelerometer not available on this device.");
         }
@@ -49,7 +45,6 @@ public class SensorsActivity extends MasterActivity implements SensorEventListen
             Toast.makeText(this, "No accelerometer found", Toast.LENGTH_SHORT).show();
             return;
         }
-
         if (!isListening) {
             sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_UI);
             isListening = true;
@@ -74,10 +69,8 @@ public class SensorsActivity extends MasterActivity implements SensorEventListen
             float x = event.values[0];
             float y = event.values[1];
             float z = event.values[2];
-
             double totalAcceleration = Math.sqrt(x * x + y * y + z * z);
             double shakeIntensity = Math.abs(totalAcceleration - SensorManager.GRAVITY_EARTH);
-
             tV_magnitude.setText(String.format(Locale.US, "Shake Intensity:\n%.2f m/s²", shakeIntensity));
         }
     }

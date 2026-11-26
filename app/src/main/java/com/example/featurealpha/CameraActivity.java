@@ -22,7 +22,6 @@ import java.io.File;
 import java.io.InputStream;
 
 public class CameraActivity extends MasterActivity {
-
     private static final int CAMERA_REQUEST = 1;
     private ImageView iV;
     private Uri photoUri;
@@ -42,7 +41,6 @@ public class CameraActivity extends MasterActivity {
                     getPackageName() + ".fileprovider",
                     photoFile
             );
-
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
             startActivityForResult(intent, CAMERA_REQUEST);
@@ -54,7 +52,6 @@ public class CameraActivity extends MasterActivity {
 
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK && photoUri != null) {
             displayFullResolutionImage(photoUri);
         }

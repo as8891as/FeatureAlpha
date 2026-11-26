@@ -10,7 +10,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class GraphicsActivity extends MasterActivity {
-
     private CanvasView canvasView;
     private MovingShapeView movingShapeView;
 
@@ -25,15 +24,12 @@ public class GraphicsActivity extends MasterActivity {
     public void startSlideAnimation(View view) {
         movingShapeView.animate().cancel();
         movingShapeView.bringToFront();
-
         float startX = canvasView.getX() + canvasView.getWidth() - movingShapeView.getWidth();
         float startY = canvasView.getY();
         float endX = canvasView.getX();
         float endY = canvasView.getY() + canvasView.getHeight() - movingShapeView.getHeight();
-
         movingShapeView.setX(startX);
         movingShapeView.setY(startY);
-
         movingShapeView.animate()
                 .x(endX)
                 .y(endY)
