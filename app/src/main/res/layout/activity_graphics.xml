@@ -47,7 +47,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="448dp" />
 
-    <!-- The Canvas Background View -->
     <com.example.featurealpha.CanvasView
         android:id="@+id/canvasView"
         android:layout_width="0dp"
@@ -61,8 +60,8 @@
         android:id="@+id/movingShapeView"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:layout_constraintEnd_toEndOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+        app:layout_constraintEnd_toEndOf="@+id/canvasView"
+        app:layout_constraintTop_toTopOf="@+id/canvasView" />
 
     <Button
         android:id="@+id/btn_listen"
